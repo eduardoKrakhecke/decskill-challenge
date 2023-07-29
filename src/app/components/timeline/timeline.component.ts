@@ -11,6 +11,7 @@ import {DialogService} from "@app/components/dialog/dialog.service";
 })
 export class TimelineComponent {
 
+  showModal: boolean = false;
   posts: Post[] = []
   private postsUpdatedSubscription: Subscription;
 
@@ -44,6 +45,24 @@ export class TimelineComponent {
       },
       (e: any) => {}
     );
+  }
+
+  onCardClicked(postId: any): void {
+    console.log('ID do post clicado:', postId);
+
+  }
+  onDelete(): void {
+    this.showModal = true;
+  }
+
+  onConfirm(): void {
+    // Aqui você pode implementar a lógica para ação de confirmação, como excluir um item.
+    // Por exemplo: this.deleteItem();
+    this.showModal = false;
+  }
+
+  onCancel(): void {
+    this.showModal = false;
   }
 
 }

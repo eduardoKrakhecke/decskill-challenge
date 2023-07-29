@@ -1,0 +1,14 @@
+.user-img {
+  width: 50px;
+  height: 50px;
+}
+
+.card {
+  border-radius: 2px;
+  padding: 15px;
+}
+
+.input-icons-post i {
+  padding-right: 10px;
+  color: #8e8e8e;
+}

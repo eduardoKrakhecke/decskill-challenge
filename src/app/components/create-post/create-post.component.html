@@ -2,17 +2,22 @@
 
 <ng-template #newPost>
   <form (ngSubmit)="createPost()">
-    <div class="form-group">
-        <textarea maxlength="130" class="form-control" rows="3"
-                  [(ngModel)]="post.text" name="post"
-                  placeholder="O que está acontecendo?">
-        </textarea>
-      <div class="input-icons ml-2 col-12 mt-3">
-        <i class="fas fa-image text-primary"></i>
-        <i class="fas fa-file-image text-primary"></i>
-        <i class="far fa-smile text-primary"></i>
-        <i class="far fa-calendar-alt text-primary"></i>
-        <button type="submit" class="btn btn-primary rounded-pill" >Tweetar</button>
+    <div class="row">
+      <div class="col-sm-1">
+        <img src="{{ this.post.image_src }}" alt="" class="rounded-circle user-img">
+      </div>
+      <div class="col-sm-11">
+        <div class="form-group">
+          <textarea maxlength="130" class="form-control" rows="2"
+                    [(ngModel)]="post.text" name="post" placeholder="O que está acontecendo?"></textarea>
+          <div class="input-icons ml-2 col-12 mt-2">
+            <i class="fas fa-image text-primary"></i>
+            <i class="fas fa-file-image text-primary"></i>
+            <i class="far fa-smile text-primary"></i>
+            <i class="far fa-calendar-alt text-primary"></i>
+            <button type="submit" class="btn btn-primary rounded-pill" [disabled]="isEmpty()">Tweetar</button>
+          </div>
+        </div>
       </div>
     </div>
   </form>

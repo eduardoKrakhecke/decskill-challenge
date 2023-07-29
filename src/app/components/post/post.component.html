@@ -1,0 +1,18 @@
+<div class="card" (click)="onClick()">
+  <div class="row align-items-center">
+    <div class="col-11">
+      <img [src]="post.image_src" alt="" class="rounded-circle user-img">
+      <p>{{ post.name }} - {{ post.username }} {{ post.created_at }}</p>
+      <p>{{ post.text }}</p>
+    </div>
+    <div class="col-1 text-right">
+      <i class="fas fa-ellipsis-v fa-rotate-90"></i>
+    </div>
+  </div>
+  <div class="input-icons-post ml-2 col-12 mt-2">
+    <i class="fas fa-image"></i>
+    <i class="fas fa-file-image"></i>
+    <i class="far fa-smile"></i>
+    <i class="far fa-calendar-alt"></i>
+  </div>
+</div>

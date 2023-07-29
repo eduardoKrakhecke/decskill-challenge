@@ -1,9 +1,12 @@
 
+<div *ngFor="let post of posts">
+  <app-post [post]="post" (cardClicked)="onCardClicked($event)" (click)="onDelete()"></app-post>
+</div>
 
-<app-card [content]="postCard"></app-card>
-<ng-template #postCard>
-  <div *ngFor="let post of posts">
-    <p (click)="removePostById(post.id)">{{post.text}}</p>
-  </div>
-</ng-template>
-
+<app-dialog
+  [title]="'vai excluir'"
+  [message]="'modalMessage'"
+  [visible]="showModal"
+  (confirm)="onConfirm()"
+  (cancel)="onCancel()">
+</app-dialog>

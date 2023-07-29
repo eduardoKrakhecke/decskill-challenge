@@ -9,10 +9,9 @@ import { Post } from '@app/models/post';
 })
 export class CreatePostComponent {
 
-  post = new Post();
+  post = new Post()
 
-  constructor(private postService: PostService) {
-  }
+  constructor(private postService: PostService) {}
 
   createPost() {
     this.postService.savePost(this.post).subscribe(
@@ -22,6 +21,15 @@ export class CreatePostComponent {
       },
       (e: string) =>{}
     )
+  }
+
+  isEmpty() {
+    if (this.post.text === undefined) {
+      return true;
+    } else if (this.post.text.trim() === '') {
+      return true;
+    }
+    return false;
   }
 
 }
