@@ -8,6 +8,7 @@ textarea::placeholder {
 }
 
 button {
+   font-weight: bold;
    float: right;
 }
 

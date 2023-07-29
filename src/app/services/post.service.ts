@@ -29,10 +29,6 @@ export class PostService {
     return of (messages.SUCCESS)
   }
 
-  getPostsUpdatedObservable(): Observable<void> {
-    return this.postsUpdatedSubject.asObservable();
-  }
-
   getAllPosts(): Observable<Post[]> {
     const existingPostsString = localStorage.getItem(keys.post);
     if (existingPostsString) {
@@ -43,15 +39,24 @@ export class PostService {
     }
   }
 
-  getPostById(id: number): Observable<Post | null> {
+  removePostById(id: number): Observable<string> {
     const existingPostsString = localStorage.getItem(keys.post);
 
     if (existingPostsString) {
-      const existingPosts: Post[] = JSON.parse(existingPostsString);
-      const post = existingPosts.find((p) => p.id === id);
-      return of(post || null);
-    } else {
-      return of(null);
+      let existingPosts: Post[] = JSON.parse(existingPostsString);
+      const postIndex = existingPosts.findIndex((p) => p.id === id);
+
+      if (postIndex !== -1) {
+        existingPosts.splice(postIndex, 1);
+        localStorage.setItem(keys.post, JSON.stringify(existingPosts));
+        this.postsUpdatedSubject.next();
+        return of(messages.SUCCESS_REMOVE);
+      }
     }
+    return of(messages.SUCCESS_REMOVE);
+  }
+
+  getPostsUpdatedObservable(): Observable<void> {
+    return this.postsUpdatedSubject.asObservable();
   }
 }

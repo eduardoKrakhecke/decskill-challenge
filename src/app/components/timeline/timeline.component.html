@@ -1,3 +1,9 @@
-<div *ngFor="let post of posts">
-  <p (click)="getPostById(post.id)">{{post.text}}</p>
-</div>
+
+
+<app-card [content]="postCard"></app-card>
+<ng-template #postCard>
+  <div *ngFor="let post of posts">
+    <p (click)="removePostById(post.id)">{{post.text}}</p>
+  </div>
+</ng-template>
+

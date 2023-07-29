@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PostService } from '@app/services/post.service';
 import { Post } from '@app/models/post';
+import {DialogService} from "@app/components/dialog/dialog.service";
 
 @Component({
   selector: 'app-timeline',
@@ -13,7 +14,9 @@ export class TimelineComponent {
   posts: Post[] = []
   private postsUpdatedSubscription: Subscription;
 
-  constructor(private postService: PostService) {
+  constructor(
+    private dialogService: DialogService,
+    private postService: PostService) {
 
     this.postsUpdatedSubscription =
       this.postService.getPostsUpdatedObservable().subscribe(() => {
@@ -34,8 +37,13 @@ export class TimelineComponent {
     );
   }
 
-  getPostById(id: number) {
-    console.log(id)
+  removePostById(id: number) {
+    this.postService.removePostById(id).subscribe(
+      (message) => {
+        console.log(message);
+      },
+      (e: any) => {}
+    );
   }
 
 }

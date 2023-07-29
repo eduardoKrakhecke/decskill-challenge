@@ -1,21 +1,20 @@
-<div class="card mb-3">
-  <div class="card-body">
-    <form (ngSubmit)="createPost()">
-      <div class="form-group">
+<app-card [content]="newPost"></app-card>
+
+<ng-template #newPost>
+  <form (ngSubmit)="createPost()">
+    <div class="form-group">
         <textarea maxlength="130" class="form-control" rows="3"
                   [(ngModel)]="post.text" name="post"
                   placeholder="O que está acontecendo?">
         </textarea>
-        <div class="input-icons ml-2 col-12 mt-3">
-          <i class="fas fa-image text-primary"></i>
-          <i class="fas fa-file-image text-primary"></i>
-          <i class="far fa-smile text-primary"></i>
-          <i class="far fa-calendar-alt text-primary"></i>
-          <button type="submit" class="btn btn-primary rounded-pill">Tweetar</button>
-        </div>
+      <div class="input-icons ml-2 col-12 mt-3">
+        <i class="fas fa-image text-primary"></i>
+        <i class="fas fa-file-image text-primary"></i>
+        <i class="far fa-smile text-primary"></i>
+        <i class="far fa-calendar-alt text-primary"></i>
+        <button type="submit" class="btn btn-primary rounded-pill" >Tweetar</button>
       </div>
-
-    </form>
-  </div>
-</div>
+    </div>
+  </form>
+</ng-template>
 

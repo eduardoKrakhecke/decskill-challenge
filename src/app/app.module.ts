@@ -7,6 +7,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     NavComponent,
     CreatePostComponent,
     TimelineComponent,
-    DialogComponent
+    DialogComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

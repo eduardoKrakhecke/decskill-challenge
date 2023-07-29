@@ -9,7 +9,7 @@ import { Post } from '@app/models/post';
 })
 export class CreatePostComponent {
 
-  post = {} as Post;
+  post = new Post();
 
   constructor(private postService: PostService) {
   }
@@ -18,6 +18,7 @@ export class CreatePostComponent {
     this.postService.savePost(this.post).subscribe(
       (response: string)=> {
        alert(response)
+        this.post = new Post()
       },
       (e: string) =>{}
     )
