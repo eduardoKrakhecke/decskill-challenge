@@ -1,0 +1,17 @@
+textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+textarea::placeholder {
+  color: #4c4c4c;
+}
+
+button {
+   float: right;
+}
+
+.input-icons i {
+  padding-right: 10px;
+  color: inherit;
+}
