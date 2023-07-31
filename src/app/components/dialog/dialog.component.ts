@@ -10,21 +10,22 @@ export class DialogComponent {
 
   @Input() title: string;
   @Input() message: string;
-  @Input() visible: boolean;
 
-  @Output() confirm: EventEmitter<void> = new EventEmitter<void>();
-  @Output() cancel: EventEmitter<void> = new EventEmitter<void>();
 
-  closeModal(): void {
-    this.cancel.emit();
+  constructor(public dialogService: DialogService) {}
+
+  confirm(): void {
+    this.dialogService.confirmAction(true);
+    this.closeModal();
   }
 
-  onConfirm(): void {
-    this.confirm.emit();
+  cancel(): void {
+    this.dialogService.confirmAction(false);
+    this.closeModal();
   }
 
-  onCancel(): void {
-    this.cancel.emit();
+  private closeModal(): void {
+    this.dialogService.closeModal();
   }
 
 }

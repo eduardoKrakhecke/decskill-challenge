@@ -42,27 +42,20 @@ export class TimelineComponent {
     this.postService.removePostById(id).subscribe(
       (message) => {
         console.log(message);
+        alert(message)
       },
       (e: any) => {}
     );
   }
 
   onCardClicked(postId: any): void {
-    console.log('ID do post clicado:', postId);
-
-  }
-  onDelete(): void {
-    this.showModal = true;
-  }
-
-  onConfirm(): void {
-    // Aqui você pode implementar a lógica para ação de confirmação, como excluir um item.
-    // Por exemplo: this.deleteItem();
-    this.showModal = false;
+    this.dialogService.openModal();
+    this.dialogService.getConfirmation().subscribe((confirm: boolean) => {
+      if (confirm) {
+        this.removePostById(postId);
+      }
+    });
   }
 
-  onCancel(): void {
-    this.showModal = false;
-  }
 
 }

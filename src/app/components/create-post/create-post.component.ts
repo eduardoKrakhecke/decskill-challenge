@@ -10,6 +10,7 @@ import { Post } from '@app/models/post';
 export class CreatePostComponent {
 
   post = new Post()
+  characterCount = 130;
 
   constructor(private postService: PostService) {}
 
@@ -18,18 +19,18 @@ export class CreatePostComponent {
       (response: string)=> {
        alert(response)
         this.post = new Post()
+        this.characterCount = 130;
       },
       (e: string) =>{}
     )
   }
 
   isEmpty() {
-    if (this.post.text === undefined) {
-      return true;
-    } else if (this.post.text.trim() === '') {
-      return true;
-    }
-    return false;
+    return !this.post.text || this.post.text.trim() === '';
+  }
+
+  updateCharacterCount() {
+    this.characterCount = 130 - (this.post.text ? this.post.text.length : 0);
   }
 
 }

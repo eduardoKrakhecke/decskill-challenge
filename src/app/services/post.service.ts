@@ -33,7 +33,7 @@ export class PostService {
     const existingPostsString = localStorage.getItem(keys.post);
     if (existingPostsString) {
       const existingPosts: Post[] = JSON.parse(existingPostsString);
-      return of(existingPosts);
+      return of(existingPosts.reverse());
     } else {
       return of([]);
     }

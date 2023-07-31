@@ -1,12 +1,9 @@
 
 <div *ngFor="let post of posts">
-  <app-post [post]="post" (cardClicked)="onCardClicked($event)" (click)="onDelete()"></app-post>
+  <app-post [post]="post" (cardClicked)="onCardClicked($event)" ></app-post>
 </div>
 
 <app-dialog
-  [title]="'vai excluir'"
-  [message]="'modalMessage'"
-  [visible]="showModal"
-  (confirm)="onConfirm()"
-  (cancel)="onCancel()">
+  [title]="'Tem certeza que deseja remover essa publicação ?'"
+  [message]="'Essa ação não poderá ser desfeita.'">
 </app-dialog>

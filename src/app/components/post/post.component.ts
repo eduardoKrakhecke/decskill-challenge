@@ -12,4 +12,5 @@ export class PostComponent {
   onClick(): void {
     this.cardClicked.emit(this.post.id);
   }
+
 }

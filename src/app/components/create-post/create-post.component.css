@@ -3,6 +3,10 @@ textarea {
   overflow: hidden;
 }
 
+.margin-text-area {
+  margin-left: 10px;
+}
+
 textarea::placeholder {
   color: #4c4c4c;
 }
