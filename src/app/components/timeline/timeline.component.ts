@@ -42,13 +42,12 @@ export class TimelineComponent {
     this.postService.removePostById(id).subscribe(
       (message) => {
         console.log(message);
-        alert(message)
       },
       (e: any) => {}
     );
   }
 
-  onCardClicked(postId: any): void {
+  handleClickRemove(postId: number): void {
     this.dialogService.openModal();
     this.dialogService.getConfirmation().subscribe((confirm: boolean) => {
       if (confirm) {

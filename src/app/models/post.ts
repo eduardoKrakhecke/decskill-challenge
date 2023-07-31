@@ -10,6 +10,5 @@ export class Post {
     this.image_src = 'assets/images/user.jpg'
     this.username = '@eduardogodoi'
     this.name = 'Eduardo K. Godoi'
-    this.created_at = Date.now()
   }
 }

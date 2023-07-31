@@ -1,6 +1,6 @@
 
 <div *ngFor="let post of posts">
-  <app-post [post]="post" (cardClicked)="onCardClicked($event)" ></app-post>
+  <app-post [post]="post" (cardClicked)="handleClickRemove($event)" ></app-post>
 </div>
 
 <app-dialog

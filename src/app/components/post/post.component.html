@@ -1,15 +1,15 @@
 <div class="card">
-  <div class="col-12 d-flex justify-content-end remove-post" (click)="onClick()">
+  <div class="col-12 d-flex justify-content-end remove-post" (click)="handleClick()">
     <i class="fas fa-trash"></i>
   </div>
   <div class="row align-items-center">
     <div class="col-1 align-top">
-      <img [src]="post.image_src" alt="" class="rounded-circle user-img">
+      <img src="{{post.image_src}}" alt="" class="rounded-circle user-img">
     </div>
     <div class="col-11">
       <div class="row align-items-center">
         <div class="col-9 margin">
-          <p class="m-0 user-name">{{ post.name }} <span class="username-styling">{{ post.username }}</span></p>
+          <p class="m-0 user-name">{{ post.name }} <span class="username-styling">{{ post.username }} - {{ timeElapsed }}</span> </p>
           <p class="m-0">{{ post.text }}</p>
         </div>
       </div>

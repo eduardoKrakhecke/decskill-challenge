@@ -15,9 +15,10 @@ export class CreatePostComponent {
   constructor(private postService: PostService) {}
 
   createPost() {
+    this.post.created_at = Date.now()
     this.postService.savePost(this.post).subscribe(
       (response: string)=> {
-       alert(response)
+        console.log(response)
         this.post = new Post()
         this.characterCount = 130;
       },
